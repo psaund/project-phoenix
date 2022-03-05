@@ -13,12 +13,12 @@ public class LinkedListReverseMtoN {
 		//print(l1);
 
 		LinkedListReverseMtoN obj = new LinkedListReverseMtoN();
-		//l1 = obj.reverseBetweenIterative(l1, 2, 4);
-		//print(l1);
-		
-		obj = new LinkedListReverseMtoN();
-		l1 = obj.reverseRecurrBetween(l1, 2, 4);
+		l1 = obj.reverseBetweenIterative(l1, 1, 3);
 		LLUtils.print(l1);
+		
+		//obj = new LinkedListReverseMtoN();
+		//l1 = obj.reverseRecurrBetween(l1, 2, 4);
+		//LLUtils.print(l1);
 
 
 	}
@@ -57,6 +57,18 @@ public class LinkedListReverseMtoN {
 		return newHead;
 	}
 
+	public static ListNode reverseIterative(ListNode head){
+		ListNode prev = null;
+		ListNode curr = head;
+		while(curr != null) {
+			ListNode nextTemp = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = nextTemp;
+		}
+		return prev;
+	}
+	
 	//Recursively
 	//https://leetcode.com/problems/reverse-linked-list-ii/solution/242639
 	static ListNode successor = null;
