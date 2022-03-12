@@ -11,7 +11,8 @@ public class ReverseLinkedList {
 		print(l1);
 		l1 = reverseList(l1);
 		print(l1);
-		
+		l1 = testReverseLL(l1);
+		print(l1);
 	}
 	
 	public static void print(ListNode ll) {
@@ -23,31 +24,32 @@ public class ReverseLinkedList {
 		System.out.println("");
 	}
 	
-	
+	// prev null, npht return prev
 	public static ListNode testReverseLL(ListNode head) {
 		ListNode prev = null;
-		ListNode curr = head;
+		//ListNode curr = head;
 		
-		while(curr != null ) {
-			ListNode nxtTemp = curr.next;
-			curr.next = prev;
-			prev = curr;
-			curr = nxtTemp;
+		while(head != null ) {
+			ListNode nxtTemp = head.next;
+			head.next = prev;
+			prev = head;
+			head = nxtTemp;
 		}	
+		//return latest new head
 		return prev;
 	}
 	
-	public static ListNode reverseList2(ListNode head){
-		ListNode prev = null;
-		ListNode curr = head;
-		while(curr != null) {
-			ListNode nextTemp = curr.next;
-			curr.next = prev;
-			prev = curr;
-			curr = nextTemp;
-		}
-		return prev;
-	}
+//	public static ListNode reverseList2(ListNode head){
+//		ListNode prev = null;
+//		ListNode curr = head;
+//		while(curr != null) {
+//			ListNode nextTemp = curr.next;
+//			curr.next = prev;
+//			prev = curr;
+//			curr = nextTemp;
+//		}
+//		return prev;
+//	}
 	
 	public static ListNode reverseList(ListNode head) {
 		if (head == null || head.next == null) { 
